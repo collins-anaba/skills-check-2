@@ -6,10 +6,12 @@ import axios from 'axios';
     
     render () {
         return (
-            <div>Dashboard {/* <Product/> */} 
+            <div>Dashboard 
             <img src={this.props.image_url} alt =''/>
             <p>{this.props.product_name}</p>
             <p>{this.props.price}</p>
+            <button onClick={props.delete}>Delete</button>
+            <button onClick={props.edit}>Edit</button>
             </div>
         )
     }
