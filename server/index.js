@@ -2,11 +2,17 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const app = express();
+const {getProduct, postProduct, editProduct, deleteProduct} = require('./controller')
 
 app.use(express.json());
 
 
-const url = '/api/inventory'
+const url = '/api/products'
+
+app.get( url, getProduct)
+app.post(url, postProduct)
+app.put(`${url}/:product_name`, editProduct)
+app.delete(`${url}/:product_name`, deleteProduct)
 
 
 massive(process.env.CONNECTION_STRING).then(db=>{
